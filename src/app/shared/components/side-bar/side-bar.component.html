@@ -6,13 +6,14 @@
   <a href="#" routerLink="/pedidos" class="list-group-item list-group-item-action bg-light">    
     <fd-icon size="large" name="cart" role="img" class="icon-large hydrated" aria-label="cart"></fd-icon>
     Pedido
+    <fd-badge color="magenta-default ">99</fd-badge>
   </a>
   <a href="#" routerLink="/ofertas" class="list-group-item list-group-item-action bg-light">    
     <fd-icon size="large" name="tag" role="img" class="icon-large hydrated" aria-label="tag"></fd-icon>
     Ofertas
   </a>
   <a href="#" routerLink="/perfil" class="list-group-item list-group-item-action bg-light">    
-    <fd-icon size="large" name="user" role="img" class="icon-large hydrated" aria-label="user"></fd-icon>
+    <fd-icon [size]="'l'" [glyph]="icon"></fd-icon>
     Mi Cuenta
   </a>
 </div>

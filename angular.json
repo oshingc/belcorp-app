@@ -24,12 +24,15 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@belcorp/fractal/dist/fractal/fractal.css",           
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/@belcorp/fractal/dist/fractal.js",
+              "node_modules/@belcorp/fractal-icons/icons/index.mjs",
+              "node_modules/@belcorp/fractal-core/dist/index.es.js",
               "node_modules/@belcorp/fractal-icons/icons/index.js"
             ]
           },

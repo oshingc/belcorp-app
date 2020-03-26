@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { defineCustomElements } from "@belcorp/fractal/loader";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,10 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     BrowserModule,
     AppRoutingModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

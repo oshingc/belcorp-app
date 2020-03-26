@@ -124,3 +124,9 @@
 .no-border{
     border: 0px 0px 0px 0px !important;
 }
+.nav-grad {
+    background-image: linear-gradient(to right, #FF512F 0%, rgb(91, 9, 112) 51%, #DD2476 100%)
+}
+#nav-heading h5 .tag-native{
+    vertical-align: middle;
+}

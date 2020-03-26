@@ -10,9 +10,15 @@ import { FdButton } from "@belcorp/fractal/dist/components";
 
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  options = {
+    slidesPerView: 3
+  }
+
+  constructor() {     
+  }
 
   ngOnInit() {
   }
+  
 
 }
