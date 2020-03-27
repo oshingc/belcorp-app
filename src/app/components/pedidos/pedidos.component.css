@@ -1,0 +1,28 @@
+.quantity-item-box{
+    width: 32px;
+    background-color: #fff;
+    border: 0px;
+}
+.quantity-div{
+    border: 1px solid;
+    height: 36px;
+    border-radius: 3px;
+}
+.pedidos-col{
+    width: 12.5% !important; 
+    /* border: 1px solid red; */
+}
+.pedidos-col-name{
+    width: 25%;
+    /* border: 1px solid red; */
+}
+.pedidos-col-trash{
+    width: 80px;
+    /* border: 1px solid red; */
+}
+.pedidos-col-imagec{
+    width: 10% !important; 
+}
+.pedidos-col-namec{
+    width: 15% !important;
+}

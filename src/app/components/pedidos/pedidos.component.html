@@ -1,3 +1,70 @@
-<p>pedidos works!</p>
+<table class="table table-borderless">
+    <thead>
+        <th class="text-center pedidos-col-name" colspan="2">
+            Nombre del Producto
+        </th>
+      <th class="text-center pedidos-col">Cantidad</th>
+      <th class="text-center pedidos-col">Precio</th>
+      <th class="text-center pedidos-col">Dscto. para ti</th>
+      <th class="text-center pedidos-col">Ganancia</th>
+      <th class="text-center pedidos-col">Precio total</th>
+      <th class="text-center pedidos-col"></th>
+    </thead>
+</table>
+<!-- <fd-grid class="grid fd-xs-mb-32" > -->
+<table class="table table-borderless">   
+    <tr *ngFor = "let p of products">
+            <fd-box shadow="small fd-md-mt-16">
+                <td class="text-center pedidos-col-imagec">
+                    <span>
+                        <fd-image object-fit="cover" src={{p.url}}></fd-image>
+                   </span>
+                </td>
+                <td class="text-center pedidos-col-namec">
+                    <span>
+                        {{p.name}}
+                   </span>
+                </td>
+                <td class="text-center pedidos-col">
 
+                    <div class="input-group input-group-sm mb-3 quantity-div">
+                        <div class="input-group-append" id="button-addon4">
+                            <button class="btn quantity-button-box" (click)="decreaseAmount()">-</button>
+                        </div>
+                        <input type="text" disabled class="form-control quantity-item-box text-center" placeholder="" value="{{p.cantidad}}"/> 
+                        <div class="input-group-prepend" id="button-addon3">
+                            <button class="btn quantity-button-box" (click)="increaseAmount()">+</button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center pedidos-col">
+                    <span>
+                        S/{{p.precio | number : '1.2-2'}}
+                   </span>
+                </td>
+                <td class="text-center pedidos-col">
+                    <span>
+                        {{p.dscto}} %
+                   </span>
+                </td>
+                <td class="text-center pedidos-col">
+                    <span>
+                        S/{{p.ganancia | number : '1.2-2'}}
+                   </span>
+                </td>
+                <td class="text-center pedidos-col">
+                    <span>
+                        S/{{p.precioTotal | number : '1.2-2'}}
+                   </span>
+                </td>
+                <td class="text-center pedidos-col">
+                    <span>
+                        <img src="/assets/icons/trash.svg" alt="Quitar Producto">
+                   </span>
+                </td>
+        </fd-box>
+    </tr>      
+</table>
 
+<fd-button fill="outline" color="black-default">Eliminar Todo</fd-button>
+<!-- </fd-grid> -->

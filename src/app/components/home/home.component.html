@@ -1,46 +1,32 @@
-<p>home works!</p>
 <!--Photo Carousell-->
-<fd-carousel options={SimpleSlide}>
-    <fd-button slot="next">
-        <fd-icon name="arrow-right-1"></fd-icon>
-    </fd-button>
-    <fd-button slot="prev">
-        <fd-icon name="arrow-left-1"></fd-icon>
-    </fd-button>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://www.cyzone.com/pe/wp-content/uploads/sites/11/2020/02/Banner_SkinFirst.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://www.cyzone.com/pe/wp-content/uploads/sites/11/2020/02/C04_LipsPalette_Desktop.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://www.cyzone.com/pe/wp-content/uploads/sites/11/2020/02/Banner_LineaStudioLook-1.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://cdn2-marcas-cnts-asts1-1.belcorp.biz/pe/wp-content/uploads/sites/13/2020/02/BioMagazine_6232927_4130518.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://cdn2-marcas.belcorp.biz/pe/wp-content/uploads/sites/13/2020/01/tipos-de-labiales-c03_banner_8353789_2510616.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://trends.lbel.com/pe/wp-content/uploads/sites/13/2019/09/ZAMAK_SHARE.jpg"></fd-image>
-  </fd-slide>
-  <fd-slide style="height: 450px">
-      <fd-image full-size object-fit="cover" src="https://trends.lbel.com/pe/wp-content/uploads/sites/13/2019/07/NOCTURNE_SHARE.png"></fd-image>
-  </fd-slide>
-</fd-carousel>
+<app-carousel></app-carousel>
 <!--End Cover Carousell-->
 
 
 <!--Hello User in Alert Modal-->
-  <fd-notification color="error" hassUndo="false" class="hello-user">
-    Hola Usuario
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-    
-  </fd-notification>
+<div class="alert alert-danger " role="alert"> 
+  <fd-grid class="grid">
+    <fd-row>
+      <fd-col size="2"> 
+        <fd-avatar size="large" shape="circle" class="fd-xs-pl-8">
+          <fd-image src="https://avatarfiles.alphacoders.com/217/217920.jpg" full-Size object-fit="cover"></fd-image>        
+        </fd-avatar>
+      </fd-col>
+      <fd-col> 
+        <fd-text color="magenta-default" bottom="10">Hola Usuario</fd-text> 
+        <fd-text color="black-default" bottom="10" class="text-width-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</fd-text>
+      </fd-col>
+    </fd-row>
+  </fd-grid>
+
+
+  
+</div>
 <!--End Hello-->
 
-Novedades
+<h4 id="product-carousel" style="position: relative;">
+  Novedades
+</h4>
 
 <fd-story visited="false">
     <fd-image
@@ -92,19 +78,15 @@ Novedades
     ></fd-image>
   </fd-story>
 
-Ofertas
 
 <!--Card Products-->
 
 
-<h3 id="product-carousel" style="position: relative;">
+<h4 id="product-carousel" style="position: relative;">
     Ofertas
-</h3>
+</h4>
 
-
-
-
-<fd-carousel options={options}>
+<fd-carousel options={options} id="carousell-products-c">
     <fd-button slot="next">Next</fd-button>
     <fd-button slot="prev">Prev</fd-button>
     <fd-slide>

@@ -9,6 +9,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { OfertasComponent } from './components/ofertas/ofertas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { CarouselComponent } from './shared/components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     SideBarComponent,
     PedidosComponent,
     OfertasComponent,
-    PerfilComponent
+    PerfilComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

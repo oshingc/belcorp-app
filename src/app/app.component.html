@@ -1,10 +1,8 @@
-<!-- Image and text -->
 <nav class="navbar navbar-light bg-light nav-grad">
-  <a class="navbar-brand" href="#">
-    <!-- <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="10" class="d-inline-block align-top" alt=""> -->
-    <!-- <span >SOMOS BELCORP</span> -->
-    <fd-heading type="h5" color="white-default" bottom="10" id="nav-heading">
-      SOMOS BELCORP
+  <a class="navbar-brand " href="#">
+    <fd-heading type="h5" color="white-default" bottom="10" id="nav-heading" >
+      <span class="fd-ml-32 fd-pl-4">SOMOS BELCORP</span>
+      <fd-icon slot="icon" name="notification" size="large"></fd-icon>
     </fd-heading>
   </a>
 </nav>
@@ -16,13 +14,7 @@
 
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <!-- <app-home></app-home> -->
     <router-outlet></router-outlet>
-    <div class="container-fluid">
-      <h1 class="mt-4">Simple Sidebar</h1>
-      <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-      <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-    </div>
   </div>
   <!-- /#page-content-wrapper -->
 </div>

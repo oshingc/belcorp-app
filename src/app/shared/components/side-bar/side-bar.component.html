@@ -1,19 +1,19 @@
-<div id="sidebarc" class="list-group list-group-flush">
+<div id="sidebarc" class="list-group list-group-flush static">
   <a href="#" routerLink="/home" class="list-group-item list-group-item-action bg-light">    
-    <fd-icon size="large" name="home" role="img" class="icon-large hydrated" aria-label="home"></fd-icon>
+    <fd-icon size="large" name="home" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="home"></fd-icon>
     Inicio
   </a>
   <a href="#" routerLink="/pedidos" class="list-group-item list-group-item-action bg-light">    
-    <fd-icon size="large" name="cart" role="img" class="icon-large hydrated" aria-label="cart"></fd-icon>
+    <fd-icon size="large" name="cart" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="cart"></fd-icon>
     Pedido
-    <fd-badge color="magenta-default ">99</fd-badge>
+    <fd-badge color="magenta-default" id="cart-badge">10</fd-badge>
   </a>
   <a href="#" routerLink="/ofertas" class="list-group-item list-group-item-action bg-light">    
-    <fd-icon size="large" name="tag" role="img" class="icon-large hydrated" aria-label="tag"></fd-icon>
+    <fd-icon size="large" name="tag" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="tag"></fd-icon>
     Ofertas
   </a>
   <a href="#" routerLink="/perfil" class="list-group-item list-group-item-action bg-light">    
-    <fd-icon [size]="'l'" [glyph]="icon"></fd-icon>
-    Mi Cuenta
+    <fd-icon size="large" name="user" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="user"></fd-icon>
+    Mi Cuenta  
   </a>
 </div>
