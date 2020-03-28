@@ -77,18 +77,17 @@
 <!--Card Products-->
 <h4 id="product-carousel" style="position: relative;">
     Ofertas
-</h4> 
-<span>{{products[0].stock | json}}</span>
+</h4>
 <fd-carousel options="{options}" id="carousell-products-c">
     <fd-button slot="next">Next</fd-button>
     <fd-button slot="prev">Prev</fd-button>
     <fd-slide>
       <fd-card-product
+          class="card-1"
           id="1"
           name="Nombre del producto en dos líneas"
           image="/assets/img/image16.png"
           origin="ESIKA"
-          has-stock="products[0].stock > 0"
           price-client="S/ 30.00"
           price-offer="S/ 21.00"          
           (click)="agregar(1)"
@@ -96,11 +95,11 @@
     </fd-slide>
     <fd-slide>
       <fd-card-product
+          class="card-2"
           id="2"
           name="Nombre del producto en dos líneas"
           image="/assets/img/coso4.png"
           origin="ESIKA"
-          has-stock="products[1].stock==0"
           price-client="S/ 40.00"
           price-offer="S/ 28.00"
           (click)="agregar(2)"
@@ -108,11 +107,11 @@
     </fd-slide>
     <fd-slide>
       <fd-card-product
+          class="card-3"
           id="3"
           name="Nombre del producto en dos líneas"
           image="/assets/img/labial.png"
           origin="ESIKA"
-          has-stock="products[2].stock==0"
           price-client="S/50.00"
           price-offer="S/ 35.00"
           (click)="agregar(3)"
@@ -120,11 +119,11 @@
     </fd-slide>
     <fd-slide>
       <fd-card-product
+          class="card-4"
           id="4"
           name="Nombre del producto en dos líneas"
           image="/assets/img/perfume1.png"
           origin="ESIKA"
-          has-stock="products[3].stock==0"
           price-client="S/ 70.00"
           price-offer="S/ 49.00"
           (click)="agregar(4)"
@@ -132,11 +131,11 @@
     </fd-slide>
     <fd-slide>
       <fd-card-product
+          class="card-5"
           id="5"
           name="Nombre del producto en dos líneas"
           image="/assets/img/perfume3.png"
           origin="ESIKA"
-          has-stock="products[4].stock==0"
           price-client="S/ 50.00"
           price-offer="S/ 35.00"
           (click)="agregar(5)"
@@ -144,11 +143,11 @@
     </fd-slide>
     <fd-slide>
       <fd-card-product
+          class="card-6"
           id="6"
           name="Nombre del producto en dos líneas"
           image="/assets/img/perfume4.png"
           origin="ESIKA"
-          has-stock="products[5].stock==0"
           price-client="S/ 70.00"
           price-offer="S/ 49.00"
           (click)="agregar(6)"

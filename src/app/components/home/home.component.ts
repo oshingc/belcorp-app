@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock: 10,
-      precio: 20,
+      precio: 21,
       dscto: 30,
-      ganancia: 10,
+      ganancia: 9,
       precioTotal: 30,
       url: "/assets/img/image16.png",
       d: true
@@ -31,9 +31,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock: 10,
-      precio: 32,
+      precio: 28,
       dscto: 30,
-      ganancia: 8,
+      ganancia: 12,
       precioTotal: 40,
       url: "/assets/img/coso4.png",
       d: true
@@ -43,9 +43,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock: 10,
-      precio: 43,
+      precio: 35,
       dscto: 30,
-      ganancia: 7,
+      ganancia: 15,
       precioTotal: 50,
       url: "/assets/img/labial.png",
       d: true
@@ -55,9 +55,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock: 10,
-      precio: 62,
+      precio: 49,
       dscto: 30,
-      ganancia: 8,
+      ganancia: 21,
       precioTotal: 70,
       url: "/assets/img/perfume1.png",
       d: true
@@ -67,9 +67,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock:10,
-      precio: 43,
+      precio: 35,
       dscto: 30,
-      ganancia: 7,
+      ganancia: 15,
       precioTotal: 50,
       url: "/assets/img/perfume3.png",
       d: true
@@ -79,9 +79,9 @@ export class HomeComponent implements OnInit {
       name: 'Nombre del producto en dos líneas',
       cantidad: 1,
       stock: 10,
-      precio: 62,
+      precio: 49,
       dscto: 30,
-      ganancia: 8,
+      ganancia: 21,
       precioTotal: 70,
       url: "/assets/img/perfume4.png",
       d: true
@@ -89,9 +89,16 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor() {     
+    let products = JSON.parse(localStorage.getItem("products"));
+    if(products == null){
+      localStorage.setItem("products", JSON.stringify(this.products));
+    }else{
+      this.products = products;
+    }
   }
 
   ngOnInit() {
+    this.loadStock();
   }
 
   agregar(id){
@@ -115,15 +122,32 @@ export class HomeComponent implements OnInit {
       }
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    this.loadStock();
   }
 
-  // onClick(event) {
-  //   const tick = document.getElementsByTagName('td-button');
-  //   Array.prototype.forEach.call(tick, function (el) {
-  //     el.style.visibility = 'hidden';
-  //   });
-  //   if (event.target.nextElementSibling)
-  //     event.target.nextElementSibling.style.visibility = 'visible';
-  // }
+  loadStock(){
 
+    if(this.products != null && this.products.length >0){
+      this.products.forEach(function(part, index) {
+        var result = document.getElementsByClassName("card-"+part.id);
+        if(part.cantidad < part.stock - 1){
+          result[0].setAttribute('has-stock','true');
+        }else{
+          result[0].setAttribute('has-stock','false');
+        }
+      });
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if(cart != null && cart.length >0){
+      cart.forEach(function(part, index) {
+        var result = document.getElementsByClassName("card-"+part.id);
+        if(part.cantidad < part.stock - 1){
+          result[0].setAttribute('has-stock','true');
+        }else{
+          result[0].setAttribute('has-stock','false');
+        }
+      });   
+    } 
+  }
 }

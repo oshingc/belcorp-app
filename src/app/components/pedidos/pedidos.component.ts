@@ -8,66 +8,61 @@ import { Component, OnInit } from '@angular/core';
 export class PedidosComponent implements OnInit {
 
   headers = ["url", "name", "cantidad", "precio", "dscto", "ganancia", "precioTotal"];
-  montoTotal = 0;
-  gananciaTotal = 0;
   cart = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.montoTotal = this.calcularMonto();
-    this.gananciaTotal = this.calcularGanancia();
     this.cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(this.cart);
     if(this.cart == null){
       this.cart = [];
     }
   }
 
   calcularMonto(){
+    let montoTotal = 0;
     for(let a of this.cart){
-      this.montoTotal += a.precioTotal;
+      montoTotal += a.precioTotal * a.cantidad;
     }
-    return this.montoTotal;
+    return montoTotal;
   }
 
   calcularGanancia(){
+    let gananciaTotal = 0;
     for(let a of this.cart){
-      this.gananciaTotal += a.ganancia;
+      gananciaTotal += a.ganancia * a.cantidad;
     }
-    return this.gananciaTotal;
+    return gananciaTotal;
   }
 
   eliminarItem(data_item){
-    this.gananciaTotal -= data_item.ganancia;
-    this.montoTotal -= data_item.precioTotal;
-    this.cart = this.cart.filter(item => item.id !== data_item.id);
-    localStorage.setItem("cart", JSON.stringify(this.cart[0]));
-  }
-
-  eliminarTodo(){
-    this.cart = [];
-    this.gananciaTotal = 0;
-    this.montoTotal = 0;
+    let i = this.cart.findIndex((obj => obj.id == data_item.id));    
+    this.cart.splice(i, 1);
     localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 
+  eliminarTodo(){    
+    let result = window.confirm("¿Desea eliminar todos los pedidos?");
+    if(result){      
+      this.cart = [];
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+    }
+  }
+
   increaseAmount(item){
-    let id = item.id;
     if(item.cantidad<item.stock){      
       item.cantidad+=1;
-
       let cart = JSON.parse(localStorage.getItem("cart"));
       if(cart == null){
         cart = [];
         cart.push(item[0]);
       }else{
         let cartItem = cart.filter(obj => {
-          return obj.id === id;
+          return obj.id === item.id;
         });
         if(cartItem.length != 0){
           cartItem[0].cantidad += 1;
-          let i = cart.findIndex((obj => obj.id == id));
+          let i = cart.findIndex((obj => obj.id == item.id));
           cart[i].cantidad = cartItem[0].cantidad;
         }else{
           cart.push(item[0]);
@@ -75,29 +70,22 @@ export class PedidosComponent implements OnInit {
       }
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-    
-    /*
-    let item = this.products.filter(obj => {
-      return obj.id === id
-    });*/
   }
 
   decreaseAmount(item){
-    let id = item.id;
-    if(item.cantidad>=2){
-      item.cantidad-=1;
-      
+    if(item.cantidad >= 2){
+      item.cantidad -=1 ;      
       let cart = JSON.parse(localStorage.getItem("cart"));
       if(cart == null){
         cart = [];
         cart.push(item[0]);
       }else{
         let cartItem = cart.filter(obj => {
-          return obj.id === id;
+          return obj.id === item.id;
         });
         if(cartItem.length != 0){
           cartItem[0].cantidad -= 1;
-          let i = cart.findIndex((obj => obj.id == id));
+          let i = cart.findIndex((obj => obj.id == item.id));
           cart[i].cantidad = cartItem[0].cantidad;
         }else{
           cart.push(item[0]);
@@ -107,4 +95,20 @@ export class PedidosComponent implements OnInit {
     }
   }
 
+  enviarPedido(){
+    let products = JSON.parse(localStorage.getItem("products"));
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    let productsToUpdate = [];
+    cart.forEach(function(part, index) {
+      let p = products.filter(obj => {
+        return obj.id === part.id;
+      });
+      p[0].stock -= cart[index].cantidad;
+      productsToUpdate.push(p);
+    });
+    this.cart = [];
+    localStorage.setItem("products", JSON.stringify(products));
+    localStorage.removeItem("cart");
+    window.alert("¡Pedido realizado con éxito!");
+  }
 }

@@ -12,7 +12,6 @@ export class SideBarComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.cartCount();
   }
 
   cartCount(){

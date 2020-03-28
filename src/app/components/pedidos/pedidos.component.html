@@ -3,25 +3,27 @@
     <fd-grid class="grid fd-xs-ml-32">
         <fd-row>
           <fd-col size="12">
-              RESUMEN DEL PEDIDO
+              <fd-text color="black-default"><b>RESUMEN DEL PEDIDO</b></fd-text>              
           </fd-col>
         </fd-row>
         <fd-row>
-          <fd-col size="4">Monto Total del Pedido </fd-col>          
-          <fd-col size="4">S/{{montoTotal}}</fd-col>
+          <fd-col size="4"><fd-text color="black-default"><b>Monto Total del Pedido</b></fd-text></fd-col>          
+          <fd-col size="4">
+            <fd-text color="black-default"><b>S/{{calcularMonto() | number : '1.2-2'}}</b></fd-text>
+            </fd-col>
         </fd-row>
         <fd-row>
           <fd-col size="4">
               <fd-text color="magenta-default">Tu ganancia</fd-text>               
            </fd-col>
-          <fd-col size="4">S/{{gananciaTotal}}</fd-col>
+          <fd-col size="4">S/{{calcularGanancia() | number : '1.2-2'}}</fd-col>
           <fd-col size="3" class="fd-md-">              
-            <fd-button fullwidth color="black-default">Enviar Pedido</fd-button>
+            <fd-button fullwidth color="black-default" (click)="enviarPedido()">Enviar Pedido</fd-button>
           </fd-col>
           </fd-row>
         <fd-row>
           <fd-col size="4">
-            <fd-text size="200" color="magenta-default">Puedes pasar pedidos hasta el 30 Feb 2020
+            <fd-text size="200" color="magenta-default"> ♦ Puedes pasar pedidos hasta el 30 Feb 2020
             </fd-text>
             </fd-col>          
         </fd-row>

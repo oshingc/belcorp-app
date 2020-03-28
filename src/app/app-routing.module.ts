@@ -6,7 +6,7 @@ import { OfertasComponent } from './components/ofertas/ofertas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'pedidos', component: PedidosComponent},  
   { path: 'ofertas', component: OfertasComponent},
