@@ -1,3 +1,35 @@
+<!--Resumen del Pedido-->
+<div class="alert alert-danger" role="alert"> 
+    <fd-grid class="grid fd-xs-ml-32">
+        <fd-row>
+          <fd-col size="12">
+              RESUMEN DEL PEDIDO
+          </fd-col>
+        </fd-row>
+        <fd-row>
+          <fd-col size="4">Monto Total del Pedido </fd-col>          
+          <fd-col size="4">S/{{montoTotal}}</fd-col>
+        </fd-row>
+        <fd-row>
+          <fd-col size="4">
+              <fd-text color="magenta-default">Tu ganancia</fd-text>               
+           </fd-col>
+          <fd-col size="4">S/{{gananciaTotal}}</fd-col>
+          <fd-col size="3" class="fd-md-">              
+            <fd-button fullwidth color="black-default">Enviar Pedido</fd-button>
+          </fd-col>
+          </fd-row>
+        <fd-row>
+          <fd-col size="4">
+            <fd-text size="200" color="magenta-default">Puedes pasar pedidos hasta el 30 Feb 2020
+            </fd-text>
+            </fd-col>          
+        </fd-row>
+    </fd-grid>
+</div>
+<!--End Resumen del Pedido-->
+
+<!--Table de Productos-->
 <table class="table table-borderless">
     <thead>
         <th class="text-center pedidos-col-name" colspan="2">
@@ -11,60 +43,52 @@
       <th class="text-center pedidos-col"></th>
     </thead>
 </table>
-<!-- <fd-grid class="grid fd-xs-mb-32" > -->
-<table class="table table-borderless">   
-    <tr *ngFor = "let p of products">
-            <fd-box shadow="small fd-md-mt-16">
-                <td class="text-center pedidos-col-imagec">
-                    <span>
-                        <fd-image object-fit="cover" src={{p.url}}></fd-image>
-                   </span>
-                </td>
-                <td class="text-center pedidos-col-namec">
-                    <span>
-                        {{p.name}}
-                   </span>
-                </td>
-                <td class="text-center pedidos-col">
-
-                    <div class="input-group input-group-sm mb-3 quantity-div">
-                        <div class="input-group-append" id="button-addon4">
-                            <button class="btn quantity-button-box" (click)="decreaseAmount()">-</button>
+<div *ngIf="cart.length>0">
+    <table class="table table-borderless">        
+        <tr *ngFor = "let p of cart">
+                <fd-box shadow="small fd-md-mt-16">
+                    <td class="text-center pedidos-col-imagec">
+                        <span>
+                            <fd-image object-fit="cover" src={{p.url}}></fd-image>
+                        </span>
+                    </td>
+                    <td class="text-center pedidos-col-namec">
+                        <span>{{p.name}}</span>
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <div class="input-group input-group-sm mb-3 quantity-div">
+                            <div class="input-group-append" id="button-addon4">
+                                <button class="btn quantity-button-box" (click)="decreaseAmount(p)">-</button>
+                            </div>
+                            <input type="text" disabled class="form-control quantity-item-box text-center" placeholder="" value="{{p.cantidad}}"/> 
+                            <div class="input-group-prepend" id="button-addon3">
+                                <button class="btn quantity-button-box" (click)="increaseAmount(p)">+</button>
+                            </div>
                         </div>
-                        <input type="text" disabled class="form-control quantity-item-box text-center" placeholder="" value="{{p.cantidad}}"/> 
-                        <div class="input-group-prepend" id="button-addon3">
-                            <button class="btn quantity-button-box" (click)="increaseAmount()">+</button>
-                        </div>
-                    </div>
-                </td>
-                <td class="text-center pedidos-col">
-                    <span>
-                        S/{{p.precio | number : '1.2-2'}}
-                   </span>
-                </td>
-                <td class="text-center pedidos-col">
-                    <span>
-                        {{p.dscto}} %
-                   </span>
-                </td>
-                <td class="text-center pedidos-col">
-                    <span>
-                        S/{{p.ganancia | number : '1.2-2'}}
-                   </span>
-                </td>
-                <td class="text-center pedidos-col">
-                    <span>
-                        S/{{p.precioTotal | number : '1.2-2'}}
-                   </span>
-                </td>
-                <td class="text-center pedidos-col">
-                    <span>
-                        <img src="/assets/icons/trash.svg" alt="Quitar Producto">
-                   </span>
-                </td>
-        </fd-box>
-    </tr>      
-</table>
-
-<fd-button fill="outline" color="black-default">Eliminar Todo</fd-button>
-<!-- </fd-grid> -->
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <span>S/{{p.precio | number : '1.2-2'}}</span>
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <span>{{p.dscto}} %</span>
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <span>S/{{p.ganancia | number : '1.2-2'}}</span>
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <span>S/{{p.precioTotal | number : '1.2-2'}}</span>
+                    </td>
+                    <td class="text-center pedidos-col">
+                        <span>
+                            <img src="/assets/icons/trash.svg" alt="Quitar Producto" (click)="eliminarItem(p)">
+                        </span>
+                    </td>
+            </fd-box>
+        </tr>      
+    </table>
+</div>
+<div class="text-center" *ngIf="cart.length==0">
+    No hay pedidos
+</div>
+<!--End Table de Productos-->
+<fd-button fill="outline" color="black-default" (click)="eliminarTodo()" class="fd-mt-16">Eliminar Todo</fd-button>

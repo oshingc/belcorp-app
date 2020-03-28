@@ -6,7 +6,7 @@
   <a href="#" routerLink="/pedidos" class="list-group-item list-group-item-action bg-light">    
     <fd-icon size="large" name="cart" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="cart"></fd-icon>
     Pedido
-    <fd-badge color="magenta-default" id="cart-badge">10</fd-badge>
+    <fd-badge color="magenta-default" id="cart-badge">{{cartCount()}}</fd-badge>
   </a>
   <a href="#" routerLink="/ofertas" class="list-group-item list-group-item-action bg-light">    
     <fd-icon size="large" name="tag" role="img" class="icon-large hydrated fd-mr-8 fd-ml-32" aria-label="tag"></fd-icon>

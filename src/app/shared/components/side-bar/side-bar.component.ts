@@ -1,15 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { FdBadge } from '@belcorp/fractal/dist/components';
-import {
-  FdInput,
-  FdSelect,
-  FdButton,
-  FdError,
-  FdTextarea,
-  FdCol,
-  FdBadge,
-  FdIcon
-} from '@belcorp/fractal/dist/components';
 
 @Component({
   selector: 'app-side-bar',
@@ -19,9 +8,19 @@ import {
 
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {    
+   }
 
   ngOnInit() {
+    this.cartCount();
+  }
+
+  cartCount(){
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if(cart == null){
+      cart = [];
+    }
+    return cart.length;
   }
 
 }

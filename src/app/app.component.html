@@ -2,16 +2,21 @@
   <a class="navbar-brand " href="#">
     <fd-heading type="h5" color="white-default" bottom="10" id="nav-heading" >
       <span class="fd-ml-32 fd-pl-4">SOMOS BELCORP</span>
-      <fd-icon slot="icon" name="notification" size="large"></fd-icon>
     </fd-heading>
-  </a>
-</nav>
+  </a>  
+  <fd-nav-item>      
+    <fd-icon slot="icon" name="add-to-cart" size="large" color="white-default">
+      <a href="/pedidos"></a>
+    </fd-icon>    
+    <fd-nav-label slot="label" label="add-to-cart" color="white-default"></fd-nav-label>   
+    <fd-badge upper="true" slot="badge" color="magenta-default">{{cartCount()}}</fd-badge>   
+  </fd-nav-item>   
+</nav> 
 
 <div class="d-flex" id="wrapper">
   <div class="bg-light border-right" id="sidebar-wrapper">
     <app-side-bar></app-side-bar>
   </div>
-
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <router-outlet></router-outlet>

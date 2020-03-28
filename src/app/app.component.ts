@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'plants';
+  title = 'Belcorp';
+
+  cartCount(){
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if(cart == null){
+      cart = [];
+    }
+    return cart.length;
+  }
 }
+
+

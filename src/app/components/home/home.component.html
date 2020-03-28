@@ -2,7 +2,6 @@
 <app-carousel></app-carousel>
 <!--End Cover Carousell-->
 
-
 <!--Hello User in Alert Modal-->
 <div class="alert alert-danger " role="alert"> 
   <fd-grid class="grid">
@@ -18,9 +17,6 @@
       </fd-col>
     </fd-row>
   </fd-grid>
-
-
-  
 </div>
 <!--End Hello-->
 
@@ -78,76 +74,85 @@
     ></fd-image>
   </fd-story>
 
-
 <!--Card Products-->
-
-
 <h4 id="product-carousel" style="position: relative;">
     Ofertas
-</h4>
-
-<fd-carousel options={options} id="carousell-products-c">
+</h4> 
+<span>{{products[0].stock | json}}</span>
+<fd-carousel options="{options}" id="carousell-products-c">
     <fd-button slot="next">Next</fd-button>
     <fd-button slot="prev">Prev</fd-button>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="1"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/image16.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[0].stock > 0"
+          price-client="S/ 30.00"
+          price-offer="S/ 21.00"          
+          (click)="agregar(1)"
       ></fd-card-product>
     </fd-slide>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="2"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/coso4.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[1].stock==0"
+          price-client="S/ 40.00"
+          price-offer="S/ 28.00"
+          (click)="agregar(2)"
       ></fd-card-product>
     </fd-slide>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="3"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/labial.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[2].stock==0"
+          price-client="S/50.00"
+          price-offer="S/ 35.00"
+          (click)="agregar(3)"
       ></fd-card-product>
     </fd-slide>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="4"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/perfume1.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[3].stock==0"
+          price-client="S/ 70.00"
+          price-offer="S/ 49.00"
+          (click)="agregar(4)"
       ></fd-card-product>
     </fd-slide>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="5"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/perfume3.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[4].stock==0"
+          price-client="S/ 50.00"
+          price-offer="S/ 35.00"
+          (click)="agregar(5)"
       ></fd-card-product>
     </fd-slide>
     <fd-slide>
       <fd-card-product
-          name="Maquillaje"
-          image="https://trends.lbel.com/pe/wp-content/plugins/altimea-asesor-bases-polvos-v3/public/assets/img/home/base.png"
+          id="6"
+          name="Nombre del producto en dos líneas"
+          image="/assets/img/perfume4.png"
           origin="ESIKA"
-          has-stock="true"
-          price-client="S/ 99.00"
-          price-offer="S/ 59.00"
+          has-stock="products[5].stock==0"
+          price-client="S/ 70.00"
+          price-offer="S/ 49.00"
+          (click)="agregar(6)"
       ></fd-card-product>
     </fd-slide>
-  </fd-carousel>
+  </fd-carousel> 
 <!--End Card Products-->
